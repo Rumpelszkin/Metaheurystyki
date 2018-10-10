@@ -18,4 +18,18 @@ public List<Integer> getItems(int index){
     return itemsStolenFromCity;
 }
 
+public void fitness(){
+
+}
+
+/*
+public int getBackpackValue(){
+
+    List<Integer> listaItemkow = new ArrayList<Integer>;
+
+    for(int i = 0; i <listaList.size();i++){
+        listaItemkow.(getItems(i));
+    }
+}*/
+
 }

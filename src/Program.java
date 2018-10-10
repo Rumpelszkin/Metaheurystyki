@@ -4,16 +4,36 @@ public class Program {
 
     Loader xd;
     double[][] distanceMatrix;
+    String PROBLEM_NAME;
+    String KNAPSACK_DATA_TYPE;
+    int DIMENSION;
+    int NUMBER_OF_ITEMS;
+    int CAPACITY_OF_KNAPSACK;
+    double MIN_SPEED;
+    double MAX_SPEED;
+    double RENTING_RATIO;
+    String EDGE_WEIGHT_TYPE;
+
 
     public Program() throws FileNotFoundException {
         String location= "C:\\Users\\Max\\Desktop\\Study\\Metaheurystyki\\ttp_student\\";
         xd = new Loader(location +"medium_3.ttp");
         fillDistanceMatrix();
+        PROBLEM_NAME = xd.infoList.get(0);
+        KNAPSACK_DATA_TYPE= xd.infoList.get(1);
+        DIMENSION = Integer.parseInt(xd.infoList.get(2));
+        NUMBER_OF_ITEMS = Integer.parseInt(xd.infoList.get(3));
+        CAPACITY_OF_KNAPSACK= Integer.parseInt(xd.infoList.get(4));
+        MIN_SPEED = Double.parseDouble(xd.infoList.get(5));
+        MAX_SPEED = 	Double.parseDouble(xd.infoList.get(6));
+        RENTING_RATIO= Double.parseDouble(xd.infoList.get(7));
+        EDGE_WEIGHT_TYPE =	xd.infoList.get(8);
+
 
     }
 
 
-    public void TTP1(){
+    public void TTP1(Solution solution){
         /*  G(x,z) = g(z) - R * f(x,z)
 
             Fitness finesse data:
@@ -21,6 +41,14 @@ public class Program {
             R - rent per time unit price
             f - time of the tour
         */
+
+
+
+        for(int i = 0; i < solution.listaList.size();i++){
+
+
+        }
+
 
 
 

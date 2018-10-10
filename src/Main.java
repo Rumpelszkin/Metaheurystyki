@@ -5,7 +5,7 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) throws FileNotFoundException {
-    //Program p = new Program();
+    Program p = new Program();
 
     Solution s = new Solution();
     List<Integer> t1 = new ArrayList<>();
