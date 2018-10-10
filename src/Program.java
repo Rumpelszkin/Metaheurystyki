@@ -7,12 +7,24 @@ public class Program {
 
     public Program() throws FileNotFoundException {
         String location= "C:\\Users\\Max\\Desktop\\Study\\Metaheurystyki\\ttp_student\\";
-        xd = new Loader(location +"easy_3.ttp");
+        xd = new Loader(location +"medium_3.ttp");
         fillDistanceMatrix();
 
     }
 
 
+    public void TTP1(){
+        /*  G(x,z) = g(z) - R * f(x,z)
+
+            Fitness finesse data:
+            G - value of all picked items
+            R - rent per time unit price
+            f - time of the tour
+        */
+
+
+
+    }
 
     public void fillDistanceMatrix(){
         distanceMatrix = new double[xd.cityLocationMatrix.length][xd.cityLocationMatrix.length];
