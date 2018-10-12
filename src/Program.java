@@ -1,4 +1,5 @@
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 
 public class Program {
 
@@ -14,7 +15,10 @@ public class Program {
     double RENTING_RATIO;
     String EDGE_WEIGHT_TYPE;
 
-
+    double ACTUAL_SPEED;
+    int ACTUAL_CAPACITY_OF_KNAPSACK;
+    int ACTUAL_VALUE;
+    double KNAPSACK_COST;
     public Program() throws FileNotFoundException {
         String location= "C:\\Users\\Max\\Desktop\\Study\\Metaheurystyki\\ttp_student\\";
         xd = new Loader(location +"medium_3.ttp");
@@ -28,10 +32,15 @@ public class Program {
         MAX_SPEED = 	Double.parseDouble(xd.infoList.get(6));
         RENTING_RATIO= Double.parseDouble(xd.infoList.get(7));
         EDGE_WEIGHT_TYPE =	xd.infoList.get(8);
-
-
+        ACTUAL_SPEED= MAX_SPEED;
+        ACTUAL_CAPACITY_OF_KNAPSACK = CAPACITY_OF_KNAPSACK;
+        ACTUAL_VALUE = 0;
+        KNAPSACK_COST = 0;
     }
-
+    public void refreshActualSpeed(){
+        if(ACTUAL_CAPACITY_OF_KNAPSACK!=0)
+        ACTUAL_SPEED = (ACTUAL_CAPACITY_OF_KNAPSACK/CAPACITY_OF_KNAPSACK)*MAX_SPEED;
+    }
 
     public void TTP1(Solution solution){
         /*  G(x,z) = g(z) - R * f(x,z)
@@ -41,12 +50,16 @@ public class Program {
             R - rent per time unit price
             f - time of the tour
         */
-
-
-
         for(int i = 0; i < solution.listaList.size();i++){
-
-
+            if(solution.hasItems(solution.listaList.get(i).get(0))){
+                ArrayList<Integer> lista = solution.getItems(solution.listaList.get(i).get(0));
+                for(int ii=0;i<lista.size();i++){
+                    Item item = xd.itemsList.get(lista.get(ii));
+                    ACTUAL_VALUE += item.profit;
+                    ACTUAL_CAPACITY_OF_KNAPSACK -= item.weight;
+                }
+                refreshActualSpeed();
+            }
         }
 
 
