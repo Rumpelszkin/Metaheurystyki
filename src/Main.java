@@ -6,9 +6,19 @@ public class Main {
 
     public static void main(String[] args) throws FileNotFoundException {
     Program p = new Program();
+    SolutionGenerator solutionGenerator= new SolutionGenerator((p.xd));
+    Solution s = solutionGenerator.solution;
 
-    Solution s = new Solution();
-    List<Integer> t1 = new ArrayList<>();
+    p.TTP1(s);
+
+
+
+
+
+
+
+
+    /*  List<Integer> t1 = new ArrayList<>();
         List<Integer> t2 = new ArrayList<>();
         List<Integer> t3 = new ArrayList<>();
         List<Integer> t4 = new ArrayList<>();
@@ -31,6 +41,6 @@ public class Main {
             if(s.hasItems(i)){
             System.out.println(s.getItems(i));
         }}
-
+*/
     }
 }

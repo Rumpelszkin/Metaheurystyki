@@ -42,6 +42,7 @@ public class Program {
         ACTUAL_SPEED = (ACTUAL_CAPACITY_OF_KNAPSACK/CAPACITY_OF_KNAPSACK)*MAX_SPEED;
     }
 
+
     public void TTP1(Solution solution){
         /*  G(x,z) = g(z) - R * f(x,z)
 
@@ -50,6 +51,7 @@ public class Program {
             R - rent per time unit price
             f - time of the tour
         */
+        double fitness = 0;
         for(int i = 0; i < solution.listaList.size();i++){
             if(solution.hasItems(solution.listaList.get(i).get(0))){
                 ArrayList<Integer> lista = solution.getItems(solution.listaList.get(i).get(0));
@@ -60,9 +62,12 @@ public class Program {
                 }
                 refreshActualSpeed();
             }
+            if(i!=0){
+                KNAPSACK_COST += ACTUAL_SPEED * distanceMatrix[i][i-1];
+            }
+            fitness = ACTUAL_VALUE - KNAPSACK_COST;
         }
-
-
+        System.out.println("Actual fitness= "+fitness);
 
 
     }
