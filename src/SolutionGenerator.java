@@ -9,14 +9,16 @@ public class SolutionGenerator {
     int captacityOfKnapsack;
     int ActualCaptacityOfKnapsack;
     ArrayList<Integer> pobranePrzedmioty;
-    List<List<Integer>> listaList = new ArrayList<>();
+    List<List<Integer>> listaList;
     Solution solution;
 
     public SolutionGenerator(Loader loader){
-        this.numberOfCities = Integer.parseInt(loader.infoList.get(2));
-        this.captacityOfKnapsack = Integer.parseInt(loader.infoList.get(4));;
-        int numberOfItems = Integer.parseInt(loader.infoList.get(3));
+        this.numberOfCities = Integer.parseInt(loader.infoList.get(2).split("\t+")[1]);
+        this.captacityOfKnapsack = Integer.parseInt(loader.infoList.get(4).split("\t+")[1]);;
+        int numberOfItems = Integer.parseInt(loader.infoList.get(3).split("\t+")[1]);
         int ActualCaptacityOfKnapsack = 0;
+
+        listaList = new ArrayList<>(numberOfCities);
 
         int[] tablica = new int[numberOfCities];
         for(int i = 0; i<numberOfCities;i++){
@@ -25,11 +27,15 @@ public class SolutionGenerator {
         shuffleArray(tablica);
 
         Random generator = new Random();
-        while(!isKnapsackFull()){//losujeindeks przedmiotu jak sie zmiesci to biore
+        int timer = 0;
+        while(!isKnapsackFull() && timer != 50){//losuje indeks przedmiotu jak sie zmiesci to biore
            int temp = generator.nextInt(numberOfItems);
-           if(ActualCaptacityOfKnapsack >= loader.itemsList.get(temp).getWeight()){
-               listaList.get(loader.itemsList.get(temp).getAssignedNode()).add(loader.itemsList.get(temp).getIndex());
+           if((captacityOfKnapsack - ActualCaptacityOfKnapsack) >= loader.itemsList.get(temp).getWeight()){
+               listaList.get(loader.itemsList.get(temp).getAssignedNode()-1).add(loader.itemsList.get(temp).getIndex());
+
+             //  System.out.println(loader.itemsList.get(temp).getIndex());
            }
+           timer++;
         }
         solution = new Solution(listaList);
 
@@ -55,7 +61,7 @@ public class SolutionGenerator {
             ArrayList<Integer> araj = new ArrayList<>();
             araj.add(ar[i]);
             listaList.add(araj);
-
+         //   System.out.println((araj.toString()));
         }
 
 

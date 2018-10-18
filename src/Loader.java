@@ -28,7 +28,7 @@ public class Loader {
         infoList= new ArrayList<String>();
         for(int i = 0;i<list.size();i++)//od 0 do 9  wyswietla dane
         {
-            System.out.println(list.get(i));
+          //  System.out.println(list.get(i));
             infoList.add(list.get(i));
         }
         int numberOfCities = Integer.parseInt(list.get(2).split("\t+")[1]);//z 3. lini liczba miast
@@ -44,7 +44,7 @@ public class Loader {
         }
         for(int i = 0; i<52; i++){
             for(int ii = 0; ii <2;ii++){
-                System.out.print(cityLocationMatrix[i][ii] +" ");
+               // System.out.print(cityLocationMatrix[i][ii] +" ");
             }
            // System.out.println(i);
         }

@@ -6,10 +6,11 @@ public class Solution {
 
 List<List<Integer>> listaList = new ArrayList<>();
 
-
+public Solution(){};
 public Solution(List<List<Integer>> lista){
     listaList= lista;
 }
+
 
 public boolean hasItems(int index){
     return listaList.get(index).size() != 1;
@@ -23,6 +24,9 @@ public ArrayList<Integer> getItems(int index){
     }
     return itemsStolenFromCity;
 }
+
+
+
 
 /*
 public int getBackpackValue(){

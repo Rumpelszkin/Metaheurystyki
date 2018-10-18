@@ -6,11 +6,13 @@ public class Main {
 
     public static void main(String[] args) throws FileNotFoundException {
     Program p = new Program();
+
+for(int i = 0; i<100; i++) {
     SolutionGenerator solutionGenerator= new SolutionGenerator((p.xd));
     Solution s = solutionGenerator.solution;
-
     p.TTP1(s);
-
+    s = new Solution();
+}
 
 
 

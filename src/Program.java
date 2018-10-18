@@ -25,12 +25,12 @@ public class Program {
         fillDistanceMatrix();
         PROBLEM_NAME = xd.infoList.get(0);
         KNAPSACK_DATA_TYPE= xd.infoList.get(1);
-        DIMENSION = Integer.parseInt(xd.infoList.get(2));
-        NUMBER_OF_ITEMS = Integer.parseInt(xd.infoList.get(3));
-        CAPACITY_OF_KNAPSACK= Integer.parseInt(xd.infoList.get(4));
-        MIN_SPEED = Double.parseDouble(xd.infoList.get(5));
-        MAX_SPEED = 	Double.parseDouble(xd.infoList.get(6));
-        RENTING_RATIO= Double.parseDouble(xd.infoList.get(7));
+        DIMENSION = Integer.parseInt(xd.infoList.get(2).split("\t+")[1]);
+        NUMBER_OF_ITEMS = Integer.parseInt(xd.infoList.get(3).split("\t+")[1]);
+        CAPACITY_OF_KNAPSACK= Integer.parseInt(xd.infoList.get(4).split("\t+")[1]);
+        MIN_SPEED = Double.parseDouble(xd.infoList.get(5).split("\t+")[1]);
+        MAX_SPEED = 	Double.parseDouble(xd.infoList.get(6).split("\t+")[1]);
+        RENTING_RATIO= Double.parseDouble(xd.infoList.get(7).split("\t+")[1]);
         EDGE_WEIGHT_TYPE =	xd.infoList.get(8);
         ACTUAL_SPEED= MAX_SPEED;
         ACTUAL_CAPACITY_OF_KNAPSACK = CAPACITY_OF_KNAPSACK;
@@ -51,6 +51,9 @@ public class Program {
             R - rent per time unit price
             f - time of the tour
         */
+        ACTUAL_VALUE = 0;
+        KNAPSACK_COST = 0;
+        ACTUAL_CAPACITY_OF_KNAPSACK = CAPACITY_OF_KNAPSACK;
         double fitness = 0;
         for(int i = 0; i < solution.listaList.size();i++){
             if(solution.hasItems(solution.listaList.get(i).get(0))){
@@ -89,9 +92,9 @@ public class Program {
         for(int i = 0; i<distanceMatrix.length;i++)
         {
             for (int ii = 0;ii<distanceMatrix.length;ii++){
-                System.out.print(distanceMatrix[i][ii]+ "  ");
+              //  System.out.print(distanceMatrix[i][ii]+ "  ");
             }
-            System.out.println();
+          //  System.out.println();
         }
     }
 }
