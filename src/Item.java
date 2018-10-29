@@ -2,7 +2,7 @@ public class Item {
 
     int index;
     int profit;
-    int weight;
+    public int weight;
     int assignedNode;
 
     public Item(int index, int profit, int weight, int assignedNode) {
